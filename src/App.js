@@ -16,30 +16,43 @@ export default class App extends Component {
 
   }
 
-  handleClickAge() {
+  handleClickAge = () => {
+    this.setState({
+      sortBy: 'age'
+    })
   }
 
-  handleClickName() {
+  handleClickName = () => {
+    this.setState({
+      sortBy: 'name'
+    })
   }
 
-  handleClickPoints() {
+  handleClickPoints = () => {
+    this.setState({
+      sortBy: 'points'
+    })
   }
 
-  handleClickRank() {
+  handleClickRank = () => {
+    this.setState({
+      sortBy: 'rank'
+    })
   }
 
   render() {
+    const {sortBy} = this.state
     return (
       <div className="text-center buttons">
         <header className="text-center">
           <h1>Leaderboard</h1>
         </header>
         <div className="text-center buttons">
-          <Age></Age>
-          <Name></Name>
-          <Points></Points>
-          <Rank></Rank>
-          <Table></Table>
+          <Age click={this.handleClickAge}></Age>
+          <Name click={this.handleClickName}></Name>
+          <Points click={this.handleClickPoints}></Points>
+          <Rank click={this.handleClickRank}></Rank>
+          <Table sortBy={sortBy}></Table>
         </div>
       </div>
     );
